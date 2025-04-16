@@ -1,0 +1,902 @@
+/* init */
+:root {
+  --black: #000;
+  --pale-red: #ff7c7c;
+  --red: #f86838;
+  --pure-red: #f00;
+  --lime-green: #0af477;
+  --turquoise-blue: #0dadb7;
+  --blue: #00c;
+  --yellow: #ff0;
+  --pale-lavender: #ccccf5;
+  --dark-gray: #5f6368;
+  --white: #fff;
+  font-size: clamp(2.5px, 0.87vw, 10px);
+  color: var(--black);
+  background-color: var(--white);
+}
+
+/* common */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Inter;
+  font-style: normal;
+  overflow-x: hidden;
+}
+a {
+  text-decoration: none;
+}
+button,
+input,
+textarea {
+  font: inherit;
+}
+button,
+label {
+  cursor: pointer;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+p {
+  margin: 0;
+}
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+/* page */
+.hero-container {
+  position: relative;
+  display: grid;
+  grid-template: repeat(4, minmax(0, 1fr)) / repeat(4, minmax(0, 1fr));
+  grid-template-areas:
+    "invite big big xevio"
+    "mgid big big when"
+    "why why where where"
+    "why why map map";
+  max-width: 1128px;
+  margin-inline: auto;
+}
+.top-container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
+  max-width: 1128px;
+  margin-inline: auto;
+}
+.top-circle {
+  position: absolute;
+  top: -28.2rem;
+  left: 0;
+  background-color: var(--yellow);
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 28.2rem;
+}
+.left-circle {
+  position: absolute;
+  top: 28.2rem;
+  left: -28.2rem;
+  background-color: var(--red);
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 28.2rem;
+}
+.right-container {
+  position: absolute;
+  top: 0;
+  right: -28.2rem;
+  height: 28.2rem;
+  width: 28.2rem;
+}
+.right-circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--pale-red);
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 282px;
+}
+.invite-circle {
+  grid-area: invite;
+  background-color: var(--yellow);
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--blue);
+  font-weight: 500;
+  line-height: 3rem;
+  font-size: 3rem;
+  padding: 4.8rem;
+}
+.address-circle,
+.when-circle {
+  grid-area: when;
+  background-color: var(--yellow);
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--black);
+  font-weight: 500;
+  line-height: 2.8rem;
+  font-size: 2.4rem;
+  padding: 4.8rem;
+  gap: 0.3rem;
+}
+.rsvp-btn {
+  margin-top: 1rem;
+  display: flex;
+  background-color: var(--blue);
+  color: var(--white);
+  border-radius: 28px;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.4rem;
+  line-height: 5.6rem;
+  font-weight: 500;
+  max-width: 184px;
+}
+.rsvp-btn-alone-container {
+  display: none;
+}
+.address-circle {
+  max-height: 28.2rem;
+  grid-area: where;
+  white-space: nowrap;
+}
+.address-circle h3,
+.when-circle h3 {
+  font-weight: 600;
+  line-height: 3.6rem;
+  font-size: 3.6rem;
+}
+.address-circle p.text {
+  font-weight: 400;
+}
+.main-rounded {
+  grid-area: big;
+  aspect-ratio: 1 / 1;
+  background-color: var(--lime-green);
+  border-radius: 14.1rem;
+}
+.blue-circle {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas: "arrow-left logo logo logo logo arrow-right";
+  column-gap: 3rem;
+  background-color: var(--blue);
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+}
+.arrow-left {
+  grid-area: arrow-left;
+  grid-row: 2/3;
+  width: 100%;
+}
+.arrow-right {
+  grid-area: arrow-right;
+  grid-row: 2/3;
+  transform: rotate(180deg);
+  width: 100%;
+}
+.logo {
+  grid-area: logo;
+  grid-row: 2/3;
+  width: 100%;
+}
+.year {
+  grid-row: 3/4;
+  grid-column: 3/5;
+  align-self: start;
+  justify-self: center;
+  width: 85.74%;
+}
+.xevio-logo {
+  grid-area: xevio;
+}
+.mgid-logo {
+  grid-area: mgid;
+}
+.xevio-logo,
+.mgid-logo {
+  border-radius: 50%;
+  display: flex;
+  overflow: hidden;
+  object-fit: cover;
+  justify-content: center;
+  align-items: center;
+  height: 28.2rem;
+}
+.xevio-logo img {
+  width: 14.4rem;
+}
+.mgid-logo img {
+  height: 100%;
+}
+.mood-circle {
+  grid-area: why;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding-left: 5.1rem;
+  position: relative;
+}
+.mood-circle img {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: auto;
+}
+.mood-circle h2 {
+  color: var(--blue);
+  font-size: 4.8rem;
+  font-weight: 600;
+  line-height: 4.8rem;
+  max-width: 21.6rem;
+}
+.mood-circle p.text {
+  color: var(--blue);
+  font-style: normal;
+  font-size: 2.4rem;
+  line-height: 2.4rem;
+  font-weight: 500;
+  margin-top: 2.9rem;
+  max-width: 23.4rem;
+}
+.mood-circle p.emoji {
+  color: var(--blue);
+  margin-top: 0.5rem;
+  font-family: "Noto Emoji";
+  font-size: 14.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.location-rounded {
+  grid-area: map;
+  border-radius: 5rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: var(--blue);
+  font-weight: 500;
+  line-height: 3rem;
+  font-size: 3rem;
+  padding: 4.8rem;
+  height: 28.2rem;
+  position: relative;
+}
+.location-rounded a {
+  padding: 2rem 4.8rem;
+  background: var(--pale-red);
+  color: var(--white);
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+}
+.location-rounded .location-img {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  height: 28.2rem;
+  border-radius: 14.1rem;
+}
+.location-rounded .location-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.location-rounded .block-brau-logo {
+  position: absolute;
+  z-index: -1;
+  right: 2.8rem;
+  width: 7.5rem;
+}
+.decorate-curve {
+  max-width: 1692px;
+  width: 100%;
+  margin-inline: auto;
+  display: flex;
+  margin-top: 7.2rem;
+  justify-content: end;
+}
+.decorate-curve svg {
+  width: 43.2rem;
+}
+.evening-details {
+  display: flex;
+  flex-direction: column;
+  gap: 6.4rem;
+  max-width: 93.9rem;
+  margin: 6.4rem auto 0;
+}
+.evening-details-title {
+  color: var(--blue);
+  text-align: center;
+  font-size: 4.8rem;
+  font-weight: 500;
+  line-height: 4.8rem;
+  letter-spacing: 0.184rem;
+}
+.evening-details-text {
+  color: var(--blue);
+  border-radius: 141px;
+  border: 8px solid var(--lime-green);
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 2.4rem 10rem;
+  font-size: 3.2rem;
+  font-weight: 400;
+  letter-spacing: 0.12rem;
+  line-height: normal;
+  position: relative;
+}
+.evening-details .desktop {
+  position: absolute;
+  top: 0;
+  left: -25.4rem;
+  width: 13.9rem;
+}
+.evening-details .mobile {
+  display: none;
+}
+.reserve-form,
+.submit-success {
+  max-width: 77rem;
+  margin: 7.2rem auto 0;
+}
+.reserve-form .inputs-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 3.6rem 2.4rem;
+}
+.reserve-form .inputs-wrapper input {
+  margin-top: 0.8rem;
+  padding: 1.3rem 1.6rem 1.5rem;
+  color: var(--black);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  background: var(--pale-lavender);
+  border: 1px solid var(--pale-lavender);
+}
+.reserve-form .input-label {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.reserve-form .input-title {
+  color: var(--black);
+  display: flex;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: normal;
+  justify-content: space-between;
+}
+.reserve-form .input-title .filled {
+  display: none;
+}
+.reserve-form .input-title .error {
+  display: block;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--red);
+  opacity: 1;
+}
+.reserve-form span {
+  color: var(--pure-red);
+}
+.reserve-form .checkboxes-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2.4rem;
+}
+.reserve-form .custom-checkbox {
+  display: flex;
+  flex-direction: row;
+}
+.reserve-form .custom-checkbox input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.reserve-form .custom-checkbox > p {
+  color: var(--black);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: normal;
+  margin: 4px 0 0 8px;
+}
+.reserve-form .custom-checkbox .checkbox {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  color: var(--dark-gray);
+}
+.reserve-form .checkbox-checked {
+  display: block;
+}
+.reserve-form .custom-checkbox .checkbox-checked {
+  display: none;
+}
+.reserve-form .custom-checkbox .checkbox-unchecked {
+  display: block;
+}
+.reserve-form .custom-checkbox input[type="checkbox"]:checked ~ .checkbox-unchecked {
+  display: none;
+}
+.reserve-form .custom-checkbox input[type="checkbox"]:checked ~ .checkbox-checked {
+  display: block;
+}
+.reserve-form .custom-checkbox p a {
+  text-decoration: underline;
+  color: var(--blue);
+  transition: 0.5s ease all;
+}
+.reserve-form .custom-checkbox.error .checkbox-unchecked {
+  color: var(--pale-red);
+}
+.reserve-form .submit {
+  margin-top: 4rem;
+  display: flex;
+  align-items: center;
+  gap: 6.3rem;
+}
+.reserve-form .submit button {
+  padding: 1.9rem 4.6rem;
+  border-radius: 3.6rem;
+  border-color: var(--white);
+  background: var(--blue);
+  color: var(--white);
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 3rem;
+  -webkit-transition: 0.4s ease all;
+  transition: 0.4s ease all;
+}
+.reserve-form .submit button:hover {
+  cursor: pointer;
+  background-color: var(--pale-red);
+}
+.submit-success {
+  padding: 2.4rem 5rem;
+  border: 8px solid var(--lime-green);
+  background: var(--lime-green);
+  color: var(--blue);
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+}
+.submit-success h3 {
+  font-size: 24px;
+  font-weight: 500;
+}
+.cooperation {
+  margin: 7.2rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cooperation p {
+  margin-top: 3.6rem;
+  color: var(--black);
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: normal;
+}
+.cooperation img {
+  margin-top: 2.4rem;
+  width: 24rem;
+  color: var(--black);
+}
+.footer {
+  max-width: 1200px;
+  margin: 9.6rem auto 0;
+  display: flex;
+  flex-direction: column;
+}
+.footer .mgid-logo {
+  padding: 1.9rem 9.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 24px;
+  height: 8rem;
+  border: 1px solid var(--blue);
+}
+.footer .mgid-logo .icon {
+  width: 7.5rem;
+  height: 4.2rem;
+}
+.footer .social {
+  padding-left: 2.4rem;
+  padding-right: 2.4rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--blue);
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+  position: relative;
+}
+.footer .social::before,
+.footer .social::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--blue);
+}
+.footer .social::before {
+  top: 0;
+}
+.footer .social::after {
+  bottom: 0;
+}
+.footer .social .links {
+  display: flex;
+  flex-direction: row;
+  gap: 3.2rem;
+}
+.footer .rights {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 4rem 0;
+  gap: 2.4rem;
+  font-size: 1.2rem;
+}
+.footer .rights a {
+  color: var(--black);
+  text-decoration-color: var(--black);
+}
+
+/* main-banner 360px */
+/* @media screen and (max-width: 719px) { */
+
+@media screen and (max-width: 575px) {
+  :root {
+    font-size: clamp(2.5px, 2.56vw, 10px);
+  }
+  .hero-container {
+    display: grid;
+    grid-template-rows: auto auto auto 13.6rem 27rem auto auto auto;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "mgid invite"
+      "big big"
+      "big big"
+      "rsvp rsvp"
+      "xevio when"
+      "why why"
+      "why why"
+      "where where"
+      "map map";
+    max-width: 36rem;
+    margin-inline: auto;
+  }
+  .main-rounded {
+    border-radius: 9rem;
+  }
+  .rsvp-btn {
+    display: none;
+  }
+  .rsvp-btn-alone-container {
+    display: flex;
+    justify-content: center;
+    grid-area: rsvp;
+  }
+  .rsvp-btn-alone {
+    margin: 3.2rem auto 4rem;
+    display: flex;
+    background-color: var(--blue);
+    color: var(--white);
+    border-radius: 2.8rem;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.2rem;
+    line-height: 3rem;
+    font-weight: 500;
+    padding: 1.7rem 4.8rem;
+  }
+  .mgid-logo {
+    height: 18rem;
+  }
+  .xevio-logo {
+    background-color: var(--turquoise-blue);
+    aspect-ratio: 1/1;
+    height: 18rem;
+  }
+  .xevio-logo img {
+    width: 8rem;
+    height: 6.65rem;
+  }
+  .when-circle,
+  .invite-circle {
+    line-height: 2rem;
+    font-size: 1.95rem;
+    padding: 0 3rem 0;
+    width: 18rem;
+    height: 18rem;
+  }
+  .when-circle h3 {
+    line-height: 2rem;
+    font-size: 2.4rem;
+  }
+  .when-circle {
+    margin-top: 9rem;
+    font-size: 1.6rem;
+    gap: 0;
+  }
+  .mood-circle h2 {
+    position: absolute;
+    top: -3.2rem;
+    left: 3rem;
+    font-size: 4rem;
+    line-height: 4rem;
+    letter-spacing: 1.4px;
+  }
+  .mood-circle p.text {
+    position: absolute;
+    bottom: 17.2rem;
+    left: 3rem;
+    font-size: 1.8rem;
+    line-height: normal;
+    max-width: 19.4rem;
+  }
+  .mood-circle p.emoji {
+    position: absolute;
+    bottom: 6.8rem;
+    left: 3rem;
+    font-size: 8rem;
+  }
+  .address-circle {
+    line-height: 1.6rem;
+    font-size: 1.6rem;
+    max-height: 18rem;
+    gap: 0;
+    padding: 0 3rem 0;
+  }
+  .address-circle h3,
+  .when-circle h3 {
+    line-height: normal;
+    font-size: 2.4rem;
+  }
+  .address-circle p.text {
+    font-size: 1.6rem;
+    line-height: normal;
+  }
+  .location-rounded {
+    grid-area: map;
+    border-radius: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    line-height: 3rem;
+    font-size: 3rem;
+    padding: 0;
+    position: relative;
+    height: 18rem;
+  }
+  .location-rounded a {
+    padding: 1.5rem 2.4rem;
+    font-size: 1.6rem;
+  }
+  .location-rounded .location-img {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    border-radius: 9rem;
+  }
+  .location-rounded .location-img img {
+    width: 36rem;
+    height: 18rem;
+  }
+  .location-rounded .block-brau-logo {
+    position: absolute;
+    z-index: -1;
+    right: 5.15rem;
+    bottom: -4.8rem;
+    width: 7.5rem;
+  }
+  .decorate-curve {
+    width: 100%;
+    margin-inline: auto;
+    display: flex;
+    margin-top: 9.6rem;
+  }
+  .decorate-curve svg {
+    width: 28.8rem;
+  }
+  .evening-details {
+    gap: 9.6rem;
+    max-width: 36rem;
+  }
+  .evening-details-title {
+    font-size: 3.2rem;
+    line-height: 3.2rem;
+    width: 30rem;
+    text-align: left;
+    align-self: center;
+    letter-spacing: normal;
+  }
+  .evening-details-text {
+    padding: 3.5rem 3rem;
+    letter-spacing: normal;
+    font-size: 2rem;
+  }
+  .evening-details .desktop {
+    display: none;
+  }
+  .evening-details .mobile {
+    display: block;
+    position: absolute;
+    top: -6.4rem;
+    left: 14.4rem;
+    width: 7.14rem;
+  }
+  .reserve-form {
+    max-width: 30rem;
+    margin: 4rem auto 0;
+  }
+  .reserve-form .inputs-wrapper {
+    gap: 2.4rem;
+  }
+  .reserve-form .inputs-wrapper input {
+    margin-top: 1.2rem;
+  }
+  .reserve-form .input-title {
+    font-weight: 400;
+  }
+  .reserve-form .checkboxes-wrapper {
+    margin-top: 3.2rem;
+    max-width: 30rem;
+    gap: 1rem;
+  }
+  .reserve-form .custom-checkbox:last-child {
+    max-width: 26.8rem;
+  }
+  .reserve-form .submit {
+    margin-top: 3.6rem;
+    flex-direction: column-reverse;
+    gap: 3.6rem;
+  }
+  .reserve-form .submit button {
+    padding: 2.1rem 4.8rem;
+  }
+  .reserve-form .submit p {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+  .submit-success {
+    max-width: 36rem;
+    margin: 3.6rem auto 0;
+    padding: 2.4rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+  }
+  .submit-success h3 {
+    font-size: 2rem;
+    font-weight: 500;
+  }
+  .cooperation {
+    margin: 5.6rem auto;
+  }
+  .cooperation svg {
+    align-self: flex-start;
+  }
+  .cooperation p {
+    font-size: 1.6rem;
+  }
+  .cooperation img {
+    margin-top: 1.8rem;
+    width: 18rem;
+    color: var(--black);
+  }
+  .footer {
+    max-width: 36rem;
+    margin: 8.8rem auto 0;
+  }
+  .footer .mgid-logo {
+    border-radius: 36px;
+    padding: 8.1rem 4.35rem;
+  }
+  .footer .social {
+    padding-right: 3rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 2.7rem;
+    position: relative;
+  }
+  .footer .social .links {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0;
+  }
+  .footer .rights {
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 2.8rem 3rem 4.8rem;
+    gap: 1rem;
+    font-size: 1.2rem;
+  }
+}
+@media screen and (max-width: 1128px) {
+  .half-container {
+    display: none;
+  }
+  .top-circle,
+  .left-circle,
+  .right-circle,
+  .right-container {
+    display: none;
+  }
+}

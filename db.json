@@ -1,0 +1,41 @@
+{
+  "submissions": [
+    {
+      "id": "3ae8",
+      "fields": [
+        {
+          "name": "firstname",
+          "value": "Yuri"
+        },
+        {
+          "name": "lastname",
+          "value": "Boblak"
+        },
+        {
+          "name": "email",
+          "value": "sselesnes@gmail.com"
+        },
+        {
+          "name": "company",
+          "value": "company"
+        },
+        {
+          "name": "website",
+          "value": "www.somecompany.com"
+        },
+        {
+          "name": "LEGAL_CONSENT.subscription_type_60484980",
+          "value": "on"
+        },
+        {
+          "name": "LEGAL_CONSENT.subscription_type_5631549",
+          "value": "on"
+        },
+        {
+          "name": "LEGAL_CONSENT.processing",
+          "value": "on"
+        }
+      ]
+    }
+  ]
+}
