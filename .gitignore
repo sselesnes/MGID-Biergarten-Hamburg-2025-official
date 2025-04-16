@@ -1,3 +1,7 @@
+# common
+.vscode
+.gitignore
+
 # Logs
 logs
 *.log
